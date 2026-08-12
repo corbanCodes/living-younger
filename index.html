@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Living Younger Financial — The Flexmethod®</title>
+  <meta name="description" content="The Flexmethod®: turn a properly structured life insurance policy into a working income engine. Living Younger Financial — Todd Trope.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0A1C2E; --navy-2: #12293F; --gold: #C9A24B; --gold-light: #E8D296;
+      --ivory: #F6F8FA; --ink: #16222E; --mist: #9AABBC;
+    }
+    * { box-sizing: border-box; margin: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, sans-serif; color: var(--ink); background: var(--ivory); line-height: 1.65; }
+    h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.12; }
+
+    /* nav */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
+          padding: 18px clamp(20px, 5vw, 56px); background: rgba(10, 28, 46, .88); backdrop-filter: blur(12px); }
+    .brand { color: #fff; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 19px; letter-spacing: .02em; text-decoration: none; }
+    .brand span { color: var(--gold); }
+    nav .call { color: var(--navy); background: var(--gold); padding: 10px 22px; border-radius: 999px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    nav .call:hover { background: var(--gold-light); }
+
+    /* hero */
+    .hero { background: radial-gradient(120% 130% at 80% -10%, #1E3A57 0%, var(--navy) 55%); color: #fff;
+            padding: clamp(130px, 20vh, 190px) clamp(20px, 6vw, 64px) clamp(70px, 10vh, 110px); }
+    .hero-inner { max-width: 1060px; margin: 0 auto; }
+    .kicker { color: var(--gold); font-weight: 700; letter-spacing: .22em; text-transform: uppercase; font-size: 12.5px; margin-bottom: 18px; }
+    .hero h1 { font-size: clamp(38px, 6.4vw, 68px); font-weight: 700; max-width: 17ch; }
+    .hero h1 em { color: var(--gold-light); font-style: italic; }
+    .hero p.lede { font-size: clamp(17px, 2vw, 20px); color: #C9D4DE; max-width: 58ch; margin: 22px 0 34px; }
+    .btn { display: inline-block; padding: 16px 34px; border-radius: 999px; font-weight: 700; font-size: 16px; text-decoration: none; }
+    .btn.gold { background: var(--gold); color: var(--navy); }
+    .btn.gold:hover { background: var(--gold-light); }
+    .btn.ghost { color: #fff; border: 1.5px solid rgba(255,255,255,.35); margin-left: 10px; }
+    .btn.ghost:hover { border-color: var(--gold); color: var(--gold-light); }
+    .hero-stats { display: flex; gap: clamp(22px, 5vw, 60px); margin-top: 54px; flex-wrap: wrap; }
+    .stat b { display: block; font-family: 'Playfair Display', serif; font-size: clamp(30px, 4vw, 44px); color: var(--gold-light); font-weight: 700; }
+    .stat span { color: var(--mist); font-size: 13.5px; font-weight: 600; letter-spacing: .04em; }
+
+    /* sections */
+    section { padding: clamp(60px, 9vw, 100px) clamp(20px, 6vw, 64px); }
+    .wrap { max-width: 1060px; margin: 0 auto; }
+    .eyebrow { color: var(--gold); font-weight: 700; letter-spacing: .2em; text-transform: uppercase; font-size: 12px; margin-bottom: 12px; }
+    h2 { font-size: clamp(28px, 4.2vw, 42px); margin-bottom: 14px; max-width: 24ch; }
+    .sub { color: #5B6B7A; max-width: 62ch; font-size: 16.5px; }
+
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin-top: 44px; }
+    .step { background: #fff; border-radius: 14px; padding: 30px 26px; border-top: 4px solid var(--gold); box-shadow: 0 10px 30px rgba(10,28,46,.07); }
+    .step .n { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 40px; font-weight: 700; line-height: 1; }
+    .step h3 { font-size: 20px; margin: 12px 0 8px; }
+    .step p { color: #55636F; font-size: 15px; }
+
+    .dark { background: var(--navy); color: #fff; }
+    .dark h2 { color: #fff; }
+    .dark .sub { color: #B7C4CF; }
+    .audience { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 40px; }
+    .aud { border: 1px solid rgba(198,164,92,.35); border-radius: 14px; padding: 26px; background: var(--navy-2); }
+    .aud h3 { color: var(--gold-light); font-size: 19px; margin-bottom: 8px; }
+    .aud p { color: #AFBEC9; font-size: 15px; }
+
+    .grid4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-top: 40px; }
+    .svc { background: #fff; border: 1px solid #E2E8EF; border-radius: 14px; padding: 26px; }
+    .lyf-form { max-width: 560px; margin: 40px auto 0; background: #fff; border-radius: 16px; padding: 32px 30px; text-align: left; box-shadow: 0 16px 50px rgba(7,21,35,.35); }
+    .lyf-form label { display: block; font-weight: 600; font-size: 13.5px; color: var(--ink); margin: 0 0 14px; }
+    .lyf-form input, .lyf-form select, .lyf-form textarea { width: 100%; box-sizing: border-box; margin-top: 6px; padding: 12px 14px; border: 1.5px solid #DCE3EB; border-radius: 9px; font-family: 'Inter', sans-serif; font-size: 15px; background: #FBFCFE; }
+    .lyf-form input:focus, .lyf-form select:focus, .lyf-form textarea:focus { outline: none; border-color: var(--gold); }
+    .lyf-form button { width: 100%; padding: 15px; background: var(--gold); color: var(--navy); border: none; border-radius: 999px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; cursor: pointer; }
+    .lyf-form button:hover { background: var(--gold-light); }
+    .lyf-success { display: none; text-align: center; padding: 30px 10px; }
+    .lyf-success h3 { font-size: 24px; margin-bottom: 8px; }
+    .lyf-success p { color: #55636F; }
+    .svc h3 { font-size: 19px; margin-bottom: 8px; }
+    .svc h3::before { content: "— "; color: var(--gold); }
+    .svc p { color: #55636F; font-size: 14.5px; }
+
+    .about { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(24px, 5vw, 60px); align-items: center; }
+    .portrait { aspect-ratio: 4/5; border-radius: 16px; background: linear-gradient(150deg, var(--navy-2), var(--navy)); display: grid; place-items: center;
+                color: var(--gold); font-family: 'Playfair Display', serif; font-size: 84px; font-weight: 700; border: 1px solid rgba(198,164,92,.4); }
+    @media (max-width: 720px) { .about { grid-template-columns: 1fr; } .portrait { max-width: 280px; } .btn.ghost { margin: 12px 0 0; } }
+
+    .cta-band { background: radial-gradient(120% 140% at 20% 0%, #1E3A57 0%, var(--navy) 60%); color: #fff; text-align: center; }
+    .cta-band h2 { max-width: none; }
+    .cta-band p { color: #B7C4CF; max-width: 54ch; margin: 12px auto 30px; }
+
+    footer { background: #071523; color: #7E8FA0; text-align: center; padding: 36px 22px 46px; font-size: 13px; }
+    footer .fbrand { color: #fff; font-family: 'Playfair Display', serif; font-size: 17px; }
+    footer .fbrand span { color: var(--gold); }
+    footer .disclaimer { max-width: 760px; margin: 14px auto 0; font-size: 11.5px; line-height: 1.6; opacity: .75; }
+  </style>
+  <style id="modern-pass">
+    /* ---- super-modern pass: refined color, depth, motion ---- */
+    ::selection { background: var(--gold); color: var(--navy); }
+    body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    a, button { transition: all .22s cubic-bezier(.2,.7,.3,1); }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+
+    /* nav: slimmer, hairline shine */
+    nav { padding-top: 14px; padding-bottom: 14px; border-bottom: 1px solid rgba(198,164,92,.22); }
+
+    /* hero: gradient headline word + ambient gold glow */
+    .hero { position: relative; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; width: 560px; height: 560px; right: -160px; top: -180px;
+      background: radial-gradient(circle, rgba(201,162,75,.16) 0%, transparent 62%); pointer-events: none; }
+    .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,162,75,.5), transparent); }
+    .hero-inner { position: relative; }
+    .hero h1 em { font-style: italic; background: linear-gradient(100deg, #E8D296 10%, #C9A24B 55%, #E8D296 90%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-stats { border-top: 1px solid rgba(255,255,255,.12); padding-top: 30px; }
+    .stat { padding-left: 18px; border-left: 2px solid rgba(201,162,75,.45); }
+    .stat b { font-variant-numeric: tabular-nums; }
+
+    /* buttons: lift + glow */
+    .btn { will-change: transform; }
+    .btn.gold { box-shadow: 0 6px 22px rgba(201,162,75,.35); }
+    .btn.gold:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(201,162,75,.45); }
+    .btn.ghost:hover { transform: translateY(-2px); background: rgba(255,255,255,.05); }
+    nav .call:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(201,162,75,.4); }
+
+    /* cards: depth + hover lift everywhere */
+    .step, .svc, .aud { transition: transform .25s cubic-bezier(.2,.7,.3,1), box-shadow .25s, border-color .25s; }
+    .step { border-radius: 16px; box-shadow: 0 2px 8px rgba(10,28,46,.05), 0 14px 34px rgba(10,28,46,.07); }
+    .step:hover { transform: translateY(-5px); box-shadow: 0 4px 12px rgba(10,28,46,.06), 0 24px 48px rgba(10,28,46,.12); }
+    .step .n { background: linear-gradient(160deg, #E8D296, #C9A24B); -webkit-background-clip: text;
+      background-clip: text; -webkit-text-fill-color: transparent; }
+    .svc { border-radius: 16px; }
+    .svc:hover { transform: translateY(-4px); border-color: rgba(201,162,75,.55); box-shadow: 0 18px 40px rgba(10,28,46,.09); }
+    .aud { border-radius: 16px; }
+    .aud:hover { transform: translateY(-4px); border-color: rgba(201,162,75,.75); box-shadow: 0 18px 44px rgba(0,0,0,.35); }
+
+    /* light-background gold text needs more contrast */
+    section:not(.dark) a[style*="color:var(--gold)"], .svc a { color: #9A7B2E !important; }
+    .svc h3::before { color: #C9A24B; }
+
+    /* cta band: top shine + glow */
+    .cta-band { position: relative; }
+    .cta-band::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,162,75,.6), transparent); }
+    .lyf-form { border-radius: 18px; }
+    .lyf-form input:focus, .lyf-form select:focus, .lyf-form textarea:focus {
+      border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,162,75,.18); }
+    .lyf-form button:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(201,162,75,.4); }
+
+    /* portrait: subtle ring */
+    .portrait { box-shadow: inset 0 0 0 1px rgba(201,162,75,.35), 0 24px 60px rgba(0,0,0,.4); }
+
+    /* scroll reveal */
+    @media (prefers-reduced-motion: no-preference) {
+      .rv { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.3,1); }
+      .rv.in { opacity: 1; transform: none; }
+    }
+
+    /* ---- hero v3: glass stats, drifting glow, entrance, Todd chip ---- */
+    @media (prefers-reduced-motion: no-preference) {
+      .hero::before { animation: drift 14s ease-in-out infinite alternate; }
+      @keyframes drift { from { transform: translate(0, 0) scale(1); } to { transform: translate(-70px, 50px) scale(1.15); } }
+      .hero .kicker, .hero h1, .hero .lede, .hero .hero-cta, .hero .who, .hero .hero-stats {
+        animation: rise .8s cubic-bezier(.2,.7,.3,1) both; }
+      .hero h1 { animation-delay: .08s; } .hero .lede { animation-delay: .16s; }
+      .hero .hero-cta { animation-delay: .24s; } .hero .who { animation-delay: .3s; }
+      .hero .hero-stats { animation-delay: .38s; }
+      @keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+    }
+    .hero-stats { border-top: none !important; padding-top: 0 !important; gap: 14px !important; }
+    .hero-stats .stat { border-left: none; padding: 16px 22px; background: rgba(255,255,255,.055);
+      border: 1px solid rgba(201,162,75,.28); border-radius: 14px; backdrop-filter: blur(8px); }
+    .who { display: inline-flex; align-items: center; gap: 12px; margin-top: 26px;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(201,162,75,.3); border-radius: 999px;
+      padding: 8px 20px 8px 8px; backdrop-filter: blur(8px); }
+    .who .tt-mini { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--gold);
+      background: var(--navy-2); color: var(--gold-light); display: grid; place-items: center;
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 17px; }
+    .ring .tt-big { width: 100%; height: 100%; border-radius: 50%; border: 4px solid var(--navy);
+      background: linear-gradient(150deg, var(--navy-2), var(--navy)); color: var(--gold-light);
+      display: grid; place-items: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 64px; }
+    .who b { font-size: 14px; color: #fff; display: block; line-height: 1.25; }
+    .who span { font-size: 12px; color: var(--mist); }
+
+    /* about portrait v2: real photo, gold ring */
+    .portrait { aspect-ratio: auto; background: none; border: none; box-shadow: none; display: block; text-align: center; }
+    .portrait .ring { width: min(230px, 70%); aspect-ratio: 1; border-radius: 50%; margin: 0 auto; padding: 7px;
+      background: conic-gradient(from 200deg, var(--gold), #7d6428, var(--gold-light), var(--gold)); }
+    .portrait .ring img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: center 32%;
+      border: 4px solid var(--navy); display: block; }
+    .portrait .cap { margin-top: 18px; font-family: 'Inter', sans-serif; }
+    .portrait .cap b { color: #fff; font-size: 18px; display: block; }
+    .portrait .cap span { color: var(--mist); font-size: 13px; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="#top">Living <span>Younger</span> Financial</a>
+  <a class="call" href="tel:5635295461">☎ (563) 529-5461</a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <p class="kicker">The Flexmethod® · US Life</p>
+    <h1>Make your money work <em>twice.</em></h1>
+    <p class="lede">A properly structured life insurance policy doesn't just protect your family — it becomes collateral you can put to work. That's the Flexmethod®: one dollar, two jobs, compounding on both sides.</p>
+    <div class="hero-cta">
+      <a class="btn gold" href="tel:5635295461">Call (563) 529-5461</a>
+      <a class="btn ghost" href="#book">Book a discovery call</a>
+    </div>
+    <div class="who">
+      <div class="tt-mini">TT</div>
+      <div><b>Todd Trope</b><span>Living Younger Financial · 30+ years in the field</span></div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><b>4–5%</b><span>POLICY GROWTH, STEADY</span></div>
+      <div class="stat"><b>10–15%</b><span>TARGET RETURNS, CONSISTENTLY PURSUED</span></div>
+      <div class="stat"><b>30+ yrs</b><span>EXPERIENCE BEHIND THE STRATEGY</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="flex">
+  <div class="wrap">
+    <p class="eyebrow">What is the Flexmethod®?</p>
+    <h2>Retire how you want, when you want.</h2>
+    <p class="sub">The Flexmethod® is a financial solution that combines investments, taxes, and life insurance into one coordinated strategy — built around one of the world's safest asset classes, flexible enough to adapt as life changes, and designed to create a paycheck for yourself. Todd brings it to you through the US Life Flexmethod® team.</p>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Build the foundation</h3><p>A properly structured US Life insurance policy grows steadily at 4–5% — protected, tax-advantaged, and always yours.</p></div>
+      <div class="step"><div class="n">2</div><h3>Borrow against it</h3><p>Instead of cashing out, you borrow against the policy — while the full value keeps compounding underneath you.</p></div>
+      <div class="step"><div class="n">3</div><h3>Put it to work</h3><p>That capital is deployed into strategies targeting 10–15% consistent returns — so income builds quickly, on top of a base that never stopped growing.</p></div>
+    </div>
+    <div style="margin-top:44px; background:var(--navy); border-radius:18px; padding:clamp(26px,4vw,40px); color:#fff; display:flex; flex-wrap:wrap; align-items:center; gap:clamp(18px,4vw,44px); justify-content:space-between;">
+      <div style="display:flex; flex-wrap:wrap; gap:clamp(18px,4vw,44px);">
+        <div class="stat"><b>250+ yrs</b><span>COLLECTIVE TEAM EXPERIENCE</span></div>
+        <div class="stat"><b>~3,000</b><span>CLIENT POLICIES</span></div>
+        <div class="stat"><b>$3B+</b><span>DEATH BENEFIT PROVIDED</span></div>
+      </div>
+      <a class="btn gold" href="https://theflexmethod.com/" target="_blank" rel="noopener" style="white-space:nowrap">Explore theflexmethod.com →</a>
+    </div>
+    <p class="sub" style="font-size:12.5px; margin-top:12px; opacity:.8">Team figures from the official Flexmethod® site. For illustrative purposes only — results vary and are not guaranteed.</p>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <p class="eyebrow">Who this is for</p>
+    <h2>Built for people ready for a second act.</h2>
+    <div class="audience">
+      <div class="aud"><h3>Rebuilding after a job loss</h3><p>Turn a setback into a system — replace a paycheck with a plan that compounds instead of one that stops when you do.</p></div>
+      <div class="aud"><h3>Property investors</h3><p>You already understand leverage. The Flexmethod® applies it to an asset that grows even while it's borrowed against.</p></div>
+      <div class="aud"><h3>Planning your legacy</h3><p>Protect what you've built, create income now, and pass it on with intention — not paperwork and guesswork.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:0; position:relative; min-height:420px; display:grid; place-items:center; text-align:center;
+  background: linear-gradient(rgba(10,28,46,.78), rgba(10,28,46,.86)), url('assets/office-building.jpg') center/cover;">
+  <div class="wrap" style="padding: 80px 24px;">
+    <p style="font-family:'Playfair Display', serif; font-size: clamp(22px, 3.4vw, 34px); color: #fff; max-width: 26ch; margin: 0 auto; line-height: 1.35;">
+      “I've found my forever strategy. I will use the Flexmethod® Strategy for my clients until the day I retire!”
+    </p>
+    <p style="color: var(--gold-light); font-weight: 700; margin-top: 18px; font-size: 14px; letter-spacing: .06em;">— RICHARD C., FINANCIAL ADVISOR &amp; AGENT</p>
+    <p style="color: var(--mist); font-size: 12px; margin-top: 6px;">From the official Flexmethod® site</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Beyond the Flexmethod®</p>
+    <h2>The rest of the toolbox.</h2>
+    <p class="sub">The Flexmethod® is where we start. Depending on your situation, Todd connects you with specialists across a full range of strategies.</p>
+    <div class="grid4">
+      <div class="svc"><h3>Advanced Trusts</h3><p>The Cadillac of asset protection — specialized irrevocable spendthrift trusts, written with experienced attorneys, through an established membership organization.</p><p style="margin-top:10px"><a href="https://cornerstoneestateplans.com/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:700;text-decoration:none">Explore Cornerstone Estate Plans →</a></p></div>
+      <div class="svc"><h3>Life Insurance &amp; Legacy</h3><p>Coverage designed to protect your family and anchor your whole financial strategy — not sit in a drawer.</p></div>
+      <div class="svc"><h3>401(k) &amp; Retirement Plans</h3><p>Retirement plans for individuals and business owners that actually coordinate with the rest of your picture.</p></div>
+      <div class="svc"><h3>Smarter Stock Strategies</h3><p>Approaches designed for the same market exposure with less downside and greater upside potential — including options-based strategies.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap about">
+    <div class="portrait">
+      <div class="ring"><div class="tt-big">TT</div></div>
+      <div class="cap"><b>Todd Trope</b><span>Founder · Living Younger Financial</span></div>
+    </div>
+    <div>
+      <p class="eyebrow">Meet Todd Trope</p>
+      <h2>Three decades building the golden goose.</h2>
+      <p class="sub" style="margin-bottom:14px">Todd has spent 30+ years working alongside attorneys, senior advisors, and trust specialists — assembling the strategies most people never hear about, and the professional network to execute them properly.</p>
+      <p class="sub">Living Younger Financial exists to put that experience to work for regular people: one conversation at a time, no pressure, no jargon.</p>
+      <a class="btn gold" href="tel:5635295461" style="margin-top:26px">Call (563) 529-5461</a>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" style="padding-bottom: 30px;">
+  <div class="wrap">
+    <p class="eyebrow">A closer look</p>
+    <h2>Seeing is believing.</h2>
+    <div class="carousel" id="lyf-carousel">
+      <div class="car-track">
+        <div class="car-slide"><img class="car-img" src="assets/planning-desk.jpg" alt="Working through a financial plan together" loading="lazy"></div>
+        <div class="car-slide"><img class="car-img" src="assets/handshake.jpg" alt="A partnership built on trust" loading="lazy"></div>
+        <div class="car-slide"><img class="car-img" src="assets/office-meeting.jpg" alt="A modern, professional practice" loading="lazy"></div>
+      </div>
+      <button class="car-btn prev" aria-label="Previous">‹</button>
+      <button class="car-btn next" aria-label="Next">›</button>
+      <div class="car-dots"></div>
+    </div>
+  </div>
+</section>
+
+<section id="book" style="padding-top: 30px;">
+  <div class="wrap">
+    <p class="eyebrow">Start with discovery</p>
+    <h2>Book your discovery call.</h2>
+    <p class="sub" style="margin-bottom: 26px">Everything starts with a short, free discovery call — Todd learns your situation, you learn whether the Flexmethod® fits, and if a specialist is the right next step, he brings one in. Pick any open slot.</p>
+    <iframe src="https://calendly.com/livingyounger?hide_gdpr_banner=1"
+            title="Book a call" loading="lazy"
+            style="width:100%; height:740px; border:0; border-radius:16px; background:#fff; box-shadow: 0 16px 50px rgba(10,28,46,.12);"></iframe>
+  </div>
+</section>
+
+<style>
+  .carousel { position: relative; margin-top: 36px; }
+  .car-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; border-radius: 18px; }
+  .car-track::-webkit-scrollbar { display: none; }
+  .car-slide { flex: 0 0 100%; scroll-snap-align: center; }
+  @media (min-width: 760px) { .car-slide { flex: 0 0 calc(50% - 8px); } }
+  .car-ph { aspect-ratio: 16/10; border-radius: 18px; display: grid; place-items: center; text-align: center;
+    font-family: 'Playfair Display', serif; font-size: 30px; color: var(--gold-light);
+    background: linear-gradient(150deg, var(--navy-2), var(--navy)); border: 1px solid rgba(201,162,75,.35); }
+  .car-ph.alt { background: linear-gradient(150deg, #1E3A57, var(--navy-2)); }
+  .car-ph span { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--mist); font-weight: 600; }
+  .car-img { width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 18px; display: block;
+    border: 1px solid rgba(10,28,46,.08); box-shadow: 0 14px 36px rgba(10,28,46,.12); }
+  .car-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%;
+    border: none; background: rgba(10,28,46,.85); color: var(--gold-light); font-size: 26px; cursor: pointer;
+    display: grid; place-items: center; backdrop-filter: blur(6px); }
+  .car-btn:hover { background: var(--navy); transform: translateY(-50%) scale(1.06); }
+  .car-btn.prev { left: 12px; } .car-btn.next { right: 12px; }
+  .car-dots { display: flex; gap: 8px; justify-content: center; margin-top: 16px; }
+  .car-dots button { width: 9px; height: 9px; border-radius: 50%; border: none; background: #C9D2DC; cursor: pointer; padding: 0; }
+  .car-dots button.on { background: var(--gold); width: 26px; border-radius: 999px; }
+</style>
+<script>
+(function () {
+  var track = document.querySelector('#lyf-carousel .car-track');
+  var slides = track.children;
+  var dots = document.querySelector('#lyf-carousel .car-dots');
+  for (var i = 0; i < slides.length; i++) {
+    var d = document.createElement('button');
+    d.dataset.i = i;
+    dots.appendChild(d);
+  }
+  function go(i) { slides[Math.max(0, Math.min(i, slides.length - 1))].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }); }
+  function cur() { return Math.round(track.scrollLeft / (slides[0].offsetWidth + 16)); }
+  document.querySelector('#lyf-carousel .prev').onclick = function () { go(cur() - 1); };
+  document.querySelector('#lyf-carousel .next').onclick = function () { go(cur() + 1); };
+  dots.addEventListener('click', function (e) { if (e.target.dataset.i) go(+e.target.dataset.i); });
+  function paint() {
+    var c = cur();
+    Array.prototype.forEach.call(dots.children, function (d, i) { d.classList.toggle('on', i === c); });
+  }
+  track.addEventListener('scroll', function () { requestAnimationFrame(paint); });
+  paint();
+})();
+</script>
+
+<section class="cta-band" id="contact">
+  <div class="wrap">
+    <h2>Curious what your money could do with two jobs?</h2>
+    <p>Send your details and Todd will reach out personally — or skip the form and just call.</p>
+    <a class="btn ghost" href="tel:5635295461" style="margin:0 0 8px">Call (563) 529-5461</a>
+    <form class="lyf-form" id="lyf-form">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <label>Your name *<input type="text" name="name" required></label>
+      <label>Cell number *<input type="tel" name="phone" required></label>
+      <label>Email<input type="email" name="email"></label>
+      <label>What are you most curious about?
+        <select name="interest">
+          <option>The Flexmethod®</option>
+          <option>Advanced trusts</option>
+          <option>Life insurance</option>
+          <option>401(k) / retirement plans</option>
+          <option>Something else</option>
+        </select>
+      </label>
+      <button type="submit">Request a call back</button>
+      <div class="lyf-success" id="lyf-success">
+        <h3>Got it — thank you.</h3>
+        <p>Todd will reach out personally, usually within one business day.</p>
+      </div>
+    </form>
+  </div>
+</section>
+<script>
+document.getElementById('lyf-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var f = e.target;
+  var data = {
+    name: f.name.value, phone: f.phone.value, email: f.email.value,
+    interest: f.interest.value, _gotcha: f._gotcha.value,
+    source: 'living-younger-site',
+    _subject: 'New Living Younger Financial inquiry (Todd Trope site)'
+  };
+  fetch('https://formspree.io/f/xojeqvng', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(data)
+  }).finally(function () {
+    Array.prototype.forEach.call(f.querySelectorAll('label, button'), function (el) { el.style.display = 'none'; });
+    document.getElementById('lyf-success').style.display = 'block';
+  });
+});
+</script>
+
+<footer>
+  <div class="fbrand">Living <span>Younger</span> Financial</div>
+  <p style="margin-top:6px">Todd Trope · your@email.com · (563) 529-5461</p>
+  <p class="disclaimer">Living Younger Financial provides educational information, insurance products, and referrals to independent professionals. Figures shown are illustrative of strategy design, not guarantees; investment returns vary and involve risk, including possible loss of principal. Loans against life insurance policies reduce death benefit and cash value if not repaid. Trust and legal services are provided by independent licensed attorneys. Consult your own tax, legal, and financial advisors before acting. Flexmethod® is a registered trademark of its owner; Living Younger Financial is an independent representative, and this is not the official Flexmethod® website — see <a href="https://theflexmethod.com/" target="_blank" rel="noopener" style="color:#C9A24B">theflexmethod.com</a>.</p>
+</footer>
+
+<script>
+(function () {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var targets = document.querySelectorAll('.step, .svc, .aud, .stat, section .eyebrow, section h2, .sub, .lyf-form');
+  targets.forEach(function (el) { el.classList.add('rv'); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.style.transitionDelay = (e.target.matches('.step,.svc,.aud,.stat') ? (Array.prototype.indexOf.call(e.target.parentNode.children, e.target) % 4) * 70 : 0) + 'ms';
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
+</body>
+</html>
